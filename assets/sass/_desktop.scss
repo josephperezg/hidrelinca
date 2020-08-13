@@ -1,0 +1,197 @@
+
+    @media screen and (min-width: 768px){
+        .home{
+            grid-template-columns: repeat(2, 1fr);
+            // grid-template-rows: 1fr;
+            grid-template-areas: "main__title home__img";
+            justify-items: center;
+            align-content: center;
+        }
+        .main__title{
+            align-self: center;
+            // grid-row: 1/2;
+            margin-left: 80px;
+            padding: 0;
+            // text-align: left;
+            // margin-left: 5vw;
+            color: s-color("white");
+            font-size: 3.5rem;
+            // grid-area: main__title;
+            width: fit-content;
+        }
+        .home__img{
+            // align-self: center;
+            // grid-row: 1/2;   
+
+            // grid-area: home__img;
+            width: 47vw;
+            min-width: 10em;
+            // position: absolute;
+            // left: 48vw;
+            // top: 50vh;
+            transform:   rotate(8deg);
+        }
+        .background-top{
+            width: 100%;
+        }
+    .services{
+        display: grid;
+        grid-template-areas:
+        "services__img1 services__sub1"
+        "services__img1 services__description1"
+        "services__img2 services__sub2"
+        "services__img2 services__description2"
+        "services__img3 services__sub3"
+        "services__img3 services__description3"
+        "services__img4 services__sub4"
+        "services__img4 services__description4";
+        gap: 30px;
+        &__sub{
+            padding: 0;
+            display: block;
+            &1{
+                grid-area: services__sub1;
+            }
+            &2{
+                grid-area: services__sub2;
+            }
+            &3{
+                grid-area: services__sub3;
+            }
+            &4{
+                grid-area: services__sub4;
+            }
+        }
+        &__img{
+            width: 30vw;
+            display: block;
+            position: static;
+            &1{
+                grid-area: services__img1;  
+            }
+            &2{
+                grid-area: services__img2;
+            }
+            &3{
+                grid-area: services__img3;
+            }
+            &4{
+                grid-area: services__img4;
+            }
+        }
+        &__description{
+            display: inline-block;
+            position: static;
+            width: 70%;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            margin-top: 50px;
+
+            &1{
+                grid-area: services__sub1;
+            }
+            &2{
+                grid-area: services__sub2;
+            }
+            &3{
+                grid-area: services__sub3;
+            }
+            &4{
+                grid-area: services__sub4;
+            }
+        }
+    }
+    .companies{
+        height: 25vh;
+        width: 80%;
+        margin: 50px auto;
+        display: grid;
+        grid-template-areas: "companies__subtitle companies__subtitle companies__subtitle companies__subtitle companies__subtitle companies__subtitle "
+        "companies__logo1 companies__logo2 companies__logo3 companies__logo4 companies__logo5 companies__logo6";
+        gap: 20px;
+        &__logo{
+            width: 150px;
+        }
+        &__subtitle{
+            grid-area: companies__subtitle;
+            margin-bottom: 25px;
+        }
+    }
+    .values{
+        height: 35vh;
+        display: grid;
+        width: 80%;
+        grid-template-columns: repeat(auto-fit, minmax(225px,250px));
+        grid-auto-rows: 150px;
+        grid-template-areas:
+        "values__title values__title values__title values__title"
+        "values__sub1  values__sub2 values__sub3 values__sub4";
+        &__title{
+            grid-area: values__title;
+        }
+        &__sub{
+            // width: 250px;
+        }
+        &__sub1{
+            grid-area: values__sub1;
+        }
+        &__sub2{
+            grid-area: values__sub2;
+        }
+        &__sub3{
+            grid-area: values__sub3;
+        }
+        &__sub4{
+            grid-area: values__sub4;
+        }
+    }
+    .contact{
+        width: 45%;
+        // overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .form{
+        width: 80%;
+        &__title{
+            text-align: left;
+        }
+        &__element{
+        width: 100%;
+        height: auto;
+        }
+        &__button{
+            width: auto;
+            padding: 7px 10px;
+            font-size: 1rem;
+        }
+
+    }
+        .textarea{
+            height: 15vh;
+        }
+    .footer{
+        padding: 30px 0 15px 0;
+        height: auto;
+        a{
+            display: block;
+            width: 50px;
+            margin: auto;
+        }
+        &-background{
+            display: none;
+        }
+        &__desk-background{
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            min-width: 1280px;
+        }
+    }
+    }

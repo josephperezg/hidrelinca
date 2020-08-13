@@ -1,0 +1,316 @@
+/*----- General settings */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/*----- Variables */
+$colors: (
+    "white": #fff,
+    "l-gray": #f4f4f4,
+    "soft-black": #252525,
+    "blue": rgb(0,139,211)
+);
+
+$box__shadow-color: rgba(19,19,19,.2);
+
+/*----- Functions */
+@function s-color($name){
+    @return map-get($colors, $name );
+}
+.section{
+    margin-bottom: 50px;
+}
+
+/*---- Backgrounds */
+
+.background{
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    &-top{
+        top: 0;
+    }
+}
+.background-2{
+    position: absolute;
+    width: 100vw;
+    top: 60vh;
+    right: 0;
+    z-index: -1;
+    max-width: 500px;
+}
+
+/*----- home section*/
+
+.home{
+    overflow-x: hidden;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr, 1fr, 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:"main__title" "home__img";
+}
+
+button {
+    display: none;
+}
+
+.fa-whatsapp{
+    background-color: #25D366;
+    border-radius: 50%;
+    padding-top: 9px;
+    box-shadow: 0 0 10px  $box__shadow-color;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    z-index: 20;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+}
+.we{
+    width: 85vw;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    &__description{
+        font-size: 1.18rem;
+        text-align: center;
+    }
+}
+
+/*----- Services section*/
+
+.services{
+    width: 100vw;
+    overflow: hidden;
+    &__img{
+        width: 75vw;
+        border-radius: 10px;
+    }
+
+    &__description{
+        margin: 0 auto;
+        background-color: s-color("white");
+        box-shadow: 0 0 15px $box__shadow-color;
+        width: 85vw;
+        border-radius: 10px;
+        padding: 20px 18px;
+        margin-bottom: 30px;
+        position: relative;
+        top: -40px;
+
+        & > span{
+            display: block;
+            line-height: 1.3;
+
+            &:not(:last-child){
+                margin-bottom: 10px;
+            }
+        }
+    }
+    &__item::before{
+        content: "° ";
+    }
+}
+.subtitle:not(.companies__subtitle){
+    margin-bottom: 25px;
+    padding-left: 18px;
+    width: 80vw;
+}
+.form{
+    & label{
+        margin: auto;
+        display: grid;
+        width: 70vw;
+        font-size: 1.2rem;
+        // background-color: blue;
+    }
+    &__title{
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+    &__element{
+        outline: none;
+        background-color: s-color("l-gray");
+        border: none;
+        display: block;
+        margin: auto;
+        margin-bottom: 15px;
+        width: 70vw;
+        resize: none;
+        font-size: 1.5em;
+        &-input{
+            border-radius: 50px;
+            height: 40px;
+            outline: none;
+        }
+    }
+    &__button{
+        outline: none;
+        padding: 10px;
+        border-radius: 50px;
+        color: s-color("white");
+        background-color: s-color("blue"); //TODO: falta definir color
+        width: 40vw;
+        box-shadow: 0 0 15px $box__shadow-color;
+        font-weight: bold;
+        &:active{ 
+            background-color: darken(s-color("blue"), 16%);
+        }
+    }
+
+}
+.sub_center{
+    text-align: center;
+
+}
+.values{
+    display: grid;
+    width: 85vw;
+    margin: auto;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 65px repeat(2, 1fr);
+    grid-template-areas: "title title" "subtitle1 subtitle2" "subtitle3 subtitle4";
+    gap: 20px 5px;
+    &__title{
+        grid-area: title;
+    }
+    &__sub1{
+        grid-area: subtitle1;
+        text-align: center;
+    }
+    &__sub2{
+        grid-area: subtitle2;
+        text-align: center;
+
+    }
+    &__sub3{
+        grid-area: subtitle3;
+        text-align: center;
+
+    }
+    &__sub4{
+        grid-area: subtitle4;
+        text-align: center;
+
+    }
+}
+.companies{
+    // box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "subtitles subtitles" "companies__logo1 companies__logo2" "companies__logo3 companies__logo4" "companies__logo5 companies__logo6";
+    justify-items: center;
+    align-items: center;
+    row-gap: 20px;
+    
+    &__logo{
+        width: 35vw;
+        filter: grayscale(100%);
+        opacity: .5;
+        &1{
+            grid-area: companies__logo1;
+        }
+        &2{
+            grid-area: companies__logo2;
+        }
+        &3{
+            grid-area: companies__logo3;
+        }
+        &4{
+            grid-area: companies__logo4;
+        }
+        &5{
+            grid-area: companies__logo5;
+        }
+        &6{
+            grid-area: companies__logo6;
+        }
+        // grid-area: companies__logo;
+    }
+    
+    &__subtitle{
+        grid-area: subtitles;
+        width: 80vw;
+    }
+}
+.footer{
+    color: s-color("white");
+    position: relative;
+    height: 50vh;
+    padding-top: 15vh;
+    &-background{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    &__desk-background{
+        display: none;
+    }
+}
+.footer__element{
+    display: block;
+    text-align: center;
+    width: 80vw;
+    font-size: 12px;
+    margin: auto;
+    margin-bottom: 8px;
+    & i{
+        background-color: transparentize(s-color("soft-black"), .8) ;
+        // height: 25px;
+        width: 25px;
+        text-align: center;
+        padding: 6px;
+        border-radius: 50%;
+    }
+}
+.footer-picsa-logo{
+    width: 80px;
+    margin-bottom: 0;
+    position: relative;
+}
+ //############## Mobile settings ####################
+
+@media screen and (max-width: 600px) {
+    .main__title{
+        text-align: center;
+        grid-area: main__title;
+        width: 100vw;
+        margin-top: 30vh;
+        max-height: 200px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: black;
+        font-size: 2em;
+        padding-top: 5%;
+    }
+    button {
+        display: none;
+    }
+    .home__img{
+        grid-area: home__img;
+        width: 80vw;
+        max-width: 500px;
+        position: relative;
+        top: -30%;
+        left: 20%;
+    
+    }
+  }
+
+@import 'header';
+@import 'desktop';
